@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" a href="./stay.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/travel_icon.png">
+    <meta name="description" content="여행을 가고싶을때 여행지 를 검색할수 있는 사이트 입니다">
+    <title>여행_어디로가지?</title>
+</head>
+<body>
+    <div class="header">
+        <span class="name"><img src="./assets/travel_icon.png">여행_어디로가지?</span>
+        <ul class="main_header">
+            <li><b><a href ="./index.html">소개</a></b></li>
+            <li><b><a href="./toursearch.html">여행지검색</a></b></li>
+            <li><b><a href="./staysearch.html">숙박</a></b></li>
+        </ul>
+    </div>
+<article class="etc_page">
+     <div class="stay_input_box">   
+        <h1 style="font-weight:100">어디서 숙박 하실 건 가요?</h1>
+        <select class="stay_input" name="목록">
+            <option value="0">지역</option>
+            <option value="1">서울</option>
+            <option value="6">부산</option>
+            <option value="2">인천</option>
+            <option value="4">대구</option>
+            <option value="5">광주</option>
+            <option value="3">대전</option>
+            <option value="7">울산</option>
+            <option value="8">세종</option>
+            <option value="31">경기</option>
+            <option value="32">강원</option>
+            <option value="33">충북</option>
+            <option value="34">충남</option>
+            <option value="35">경북</option>
+            <option value="36">경남</option>
+            <option value="37">전북</option>
+            <option value="38">전남</option>
+            <option value="39">제주</option>
+        </select>
+        <select class="stay_input2" name="목록2"> 
+            <option>도시 선택</option>                
+        </select>
+        <button class="stay_btn">검색</button>
+     </div>    
+     <div class="stay_result_page">
+         <h2>검색결과</h2>
+         <span class="area_weather">
+            <span class="area_name">
+                <img src="./assets/저작권표시사진.jpg">
+                <p>본 사이트는 한국관광공사의 공공데이터로 제작되었습니다<br>
+                저작권표시후 사용가능합니다</p>
+            </span>
+            <span class="kakao_ad">adfit 광고 화면</span>
+        </span>
+         <section class="stay_result_box"></section>
+    </div> 
+</article> 
+<span class="stay_detail_page">
+    <div class="stay_detail_topic"></div>
+    <div class="stay_detail_inner"></div>
+</span>
+<span class="stay_delete_btn">닫기</span>
+<span class="background_overlay"></span>
+
+<script src="./stay.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=780050e9e52fc245b199daa7973c8c9b&libraries=services"></script>
+</body>
+</html>
