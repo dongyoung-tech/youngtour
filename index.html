@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" a href="./index.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&amp;family=Jua&amp;display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/travel_icon.png">
     <meta name="description" content="여행을 가고싶을때 여행지 를 검색할수 있는 사이트 입니다">
     <title>여행_어디로가지?</title>
@@ -57,21 +58,124 @@
 <article class="second_page">
     <h1>🚂<b>방구석에서 찾아보는 전국  곳곳의 여행지</b></h1>
     <div class="topic_box">
-        <div><h4>#휴양지</h4><span></span></div>
-        <div><h4>#레포츠</h4><span></span></div>
-        <div><h4>#숙박</h4><span></span></div>
+        <div class="topic_name">
+            <a href="./toursearch.html">
+                <span></span>
+                <div>
+                    <h2>휴양지</h2>
+                    <h3>편안히 쉬면서 몸과 마음을 재충전!</h3>
+                    <b>&#8594;</b>
+                </div>
+            </a>
+        </div>
+        <div  class="topic_name">
+            <a href="./toursearch.html">
+                <span></span>
+                <div>
+                    <h2>레포츠</h2>
+                    <h3>짜릿하고 기분좋은 경험!</h3>
+                    <b>&#8594;</b>
+                </div>
+            </a>
+        </div >
+        <div class="topic_name">
+            <a href="./staysearch.html">
+                <span></span>
+                <div>
+                    <h2>숙박</h2>
+                    <h3>지친몸을 달래고 맏길 수 있는곳!</h3>
+                    <b>&#8594;</b>
+                </div>
+            </a>
+        </div>
     </div>
 </article>
-<article class="third_page">
-    <h1>일상을 벗어나다</h1>
-    <h2>일상에서 잠시 벗어나 여행을 떠나보세요</h2>
-    <h2>가족들과 , 연인과 , 친구들과 <br>소중한 추억을 만들러 떠나는 힐링여행</h2>
+<article class="stay_recommend_page"></article>
+<article class="recommend_page">
+    <h1>🚅<b>추천 여행지</b></h1>
+    <div class="recommend_travel_box">
+        <img>
+        <span class="recommend_travel_intro">
+            <h2>제목</h2>
+            <h3 style="font-weight: 100;"></h3>
+            <p></p>
+        </span>
+    </div>
 </article>
+
 <footer>
-    <p>홈페이지 제작자 : 이동영</p>
-    <p>E-MAIL : ekzmgjalt55@gmail.com</p>
-    <p>본 사이트는 한국관광공사의 공공데이터를 이용해 제작되었습니다.</p>
+    <p>홈페이지 제작자 : 이동영<br>
+    E-MAIL : ekzmgjalt55@gmail.com<br>
+    본 사이트는 한국관광공사의 공공데이터를 이용해 제작되었습니다.</p>
 </footer>
+<script>
+    function recommendapi(){
+    var areacode = [0,1,2,3,4,5,6,7,8,31,32,33,34,35,36,37,38,39];
+    var number = Math.floor(Math.random() * 17 + 1);
+    var contentscode = 12;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'yX8wx5nzKb42wtBThegyX7gb6G3xUCPCMfbzNYF1Gf0p0nSUn9ZeynPzokq9GNLvrFLmqQVbU9%2FQz9LckJpQLw%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('4'); /**/
+    queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
+    queryParams += '&' + encodeURIComponent('arrange') + '=' + encodeURIComponent('P'); /**/
+    queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC'); /**/
+    queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest'); /**/
+    queryParams += '&' + encodeURIComponent('areaCode') + '=' + encodeURIComponent(areacode[number]);
+    queryParams += '&' + encodeURIComponent('contentTypeId') + '=' + encodeURIComponent(contentscode); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            var xml = this.responseXML;
+            var names = xml.getElementsByTagName('title');
+            var image = xml.getElementsByTagName('firstimage');
+            var content = xml.getElementsByTagName('contentid');
+            var contentid = content[3].innerHTML;
+            for(var i = 0; i<3; i++){
+                var num = i;
+                document.querySelectorAll('.recommend_place img')[num].setAttribute('src',image[num].innerHTML);
+                document.querySelectorAll('.recommend_topic h3')[num].innerHTML = names[num].innerHTML;
+            }
+            contentapi(contentid);
+        }
+    };
+
+    xhr.send('');
+}
+recommendapi();
+
+function contentapi(a){
+    var xhr = new XMLHttpRequest();
+    var url = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'yX8wx5nzKb42wtBThegyX7gb6G3xUCPCMfbzNYF1Gf0p0nSUn9ZeynPzokq9GNLvrFLmqQVbU9%2FQz9LckJpQLw%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('1'); /**/
+    queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+    queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC'); /**/
+    queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest');
+    queryParams += '&' + encodeURIComponent('firstImageYN') + '=' + encodeURIComponent('Y');
+    queryParams += '&' + encodeURIComponent('defaultYN') + '=' + encodeURIComponent('Y');
+    queryParams += '&' + encodeURIComponent('addrinfoYN') + '=' + encodeURIComponent('Y');
+    queryParams += '&' + encodeURIComponent('overviewYN') + '=' + encodeURIComponent('Y'); /**/
+    queryParams += '&' + encodeURIComponent('contentId') + '=' + encodeURIComponent(a); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            var xml = this.responseXML;
+            var title = xml.getElementsByTagName('title');
+            var view = xml.getElementsByTagName('overview');
+            var image = xml.getElementsByTagName('firstimage');
+            var addr = xml.getElementsByTagName('addr1');
+            document.querySelector('.recommend_travel_intro h2').innerHTML = title[0].innerHTML;
+            document.querySelector('.recommend_travel_intro h3').innerHTML = addr[0].innerHTML;
+            document.querySelector('.recommend_travel_intro p').innerHTML = view[0].textContent;
+            document.querySelector('.recommend_travel_box img').setAttribute('src',image[0].innerHTML);
+
+        }
+    };
+
+    xhr.send('');
+}
+</script>
 <script src="./index.js"></script>
 </body>
 </html>
