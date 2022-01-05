@@ -1,5 +1,5 @@
 body{
-    font-family:'Noto Sans KR',sans-serif;
+    font-family:'Jua',sans-serif;
     margin:0;
     width:100vw;
     overflow-x:hidden;
@@ -23,14 +23,26 @@ body{
 .header{
     position:fixed;
     display: inline-block;
-    background-color: white;
+    color: white;
     z-index: 4;
     width:100%;
     height:100px;
     top:0;
     left:0;
+}
+.header.after{
+    background-color: white;
+    color:black;
     border-bottom: 1px solid #d2d2d2;
 }
+
+.header.after .name{
+    color: black;
+}
+.header.after  a{
+    color: black;
+}
+
 
 .name{
     position:absolute;
@@ -42,6 +54,7 @@ body{
     top:0;
     left:5%;
     line-height:100px;
+    color: white;
     font-weight: bold;
     z-index:4;
 }
@@ -75,17 +88,17 @@ body{
     width:100%;
     height:100vh;
     box-sizing: border-box;
-    background-image: url("./assets/travel2.jpg");
+    background-image: url("./assets/sky2.jpg");
     filter: brightness(85%);
     background-size:cover;
     transition:1s opacity ease-in-out;
 }
 
 .intro_img:nth-child(2){
-    background-image: url("./assets/sky2.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("./assets/seoulcity.jpg");
 }
 .intro_img:nth-child(3){
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("./assets/seoulcity.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("./assets/city.jpg");
 }
 .recommend_box{
     position: absolute;
@@ -100,6 +113,7 @@ body{
     padding-left:30px;
     color:white;
     font-size: 35px;
+    font-weight: 100;
 }
 .recommend_place{
     position:relative;
@@ -181,14 +195,26 @@ body{
     text-align:center;
     line-height:100px;
 }
-.main_header li b:hover{
-    border-bottom:2px solid black;
+.main_header li a{
+    width:100%;
+    height:100%;
+    box-sizing: border-box;
+    z-index: 2;
 }
+.header.after li a:hover{
+    background-color : #506EA5;
+    color: white;
+    border-bottom: none;
+}
+.header li a:hover{
+    border-bottom: 3px solid  white;
+}
+
 
 
 a{
     display: inline-block;
-    color:black;
+    color:white;
     text-decoration: none;  
 }
 .direct_btn {
@@ -203,43 +229,42 @@ a{
 }
 
 .second_page{
+    position: relative;
     display:block;
     margin: 0;
     width:100%;
-    height:680px;
-    padding:5%;
-    box-sizing: border-box;
-    padding-top:100px;
+    height:500px;
+    padding-top:150px;
+    padding-bottom: 100px;
+    z-index:1;
 }
 .second_page h1{
     font-size:30px;
     font-weight: 100;
     width:1000px;
     margin: 0 auto;
-    padding-left:5%;
     text-align:left;
+    padding-left: 4%;
 }
 
 .topic_box{
     display:block;
     margin: 0 auto;
-    margin-top:60px;
+    margin-top:50px;
     width:1000px;
     height:400px;
     box-sizing: border-box;
 }
 
-.topic_box div{
+.topic_name{
     position:relative;
     float: left;
     height:300px;
     margin:3%;
     width:calc(82%/3);
     box-sizing: border-box;
-    border-radius:10px;
     margin-bottom: 0;
     overflow: hidden;
-    line-height: 300px;
 }
 .topic_box h4{
     position: absolute;
@@ -252,7 +277,40 @@ a{
     text-align: center;
     pointer-events: none;
 }
-.topic_box div span{
+.topic_name div{
+    position: relative;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    height:50%;
+    color: white;
+    box-sizing: border-box;
+    padding: 15px;
+    z-index:4;
+    pointer-events: none;
+}
+.topic_name div b{
+    position:absolute;
+    bottom:15px;
+    right:15px;
+    color:white;
+}
+
+.topic_name div h2{
+    width:100%;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 0;
+}
+.topic_name div h3{
+    width:100%;
+    font-size:15px;
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+}
+.topic_name span{
     position:absolute;
     top:0;
     left:0;
@@ -260,21 +318,21 @@ a{
     height:100%;
     z-index: 3;
 }
-.topic_box div:nth-child(1) span{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("./assets/topic1.jpg");
+.topic_name:nth-child(1) span {
+    background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("./assets/topic1.jpg");
     background-size:100% 100%;
 }
-.topic_box div:nth-child(2) span{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("./assets/surfing.jpg");
+.topic_name:nth-child(2) span {
+    background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("./assets/surfing.jpg");
     background-size:100% 100%;
 }
-.topic_box div:nth-child(3) span{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("./assets/house.jpg");
+.topic_name:nth-child(3) span {
+    background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("./assets/house.jpg");
     background-size:100% 100%;
 }
-.topic_box div span:hover{
-    transition: 1s;
-    transform: scale(1.3);
+.topic_name span:hover{
+    transition: 1.5s;
+    transform: scale(1.5);
 }
 
 .third_page{
@@ -287,6 +345,7 @@ a{
     box-sizing: border-box;
     padding: 5%;
     padding-left:10%;
+    z-index:1;
 }
 .third_page h1{
     margin-top:100px;
@@ -301,13 +360,76 @@ footer{
     display: block;
     padding-top:50px;
     width:100%;
-    height:150px;
-    background-color: #323232;
+    height:170px;
+    background-color:white;
 }
 footer p {
-    text-align: center;
-    color: #d2d2d2;
+    padding-top:30px;
+    width:100%;
+    padding-left:100px;
+    text-align:left;
+    color: black;
+    font-size: 13px;
     margin:0;
+}
+
+.recommend_page{
+    display: block;
+    box-sizing: border-box;
+    padding:50px;
+    padding-bottom: 100px;
+    width:100%;
+    height:830px;
+    background-size: cover;
+}
+
+.recommend_page h1{
+    text-align:center;
+    font-weight: 100;
+    font-size:40px;
+    margin-top:50px;
+    margin-bottom:100px;
+}
+.recommend_travel_box{
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
+    width:100%;
+    height:500px;
+}
+.recommend_travel_box img{
+    display: block;
+    width:55%;
+    height: 100%;
+    float: left;
+}
+.recommend_travel_intro{
+    display: block;
+    box-sizing: border-box;
+    padding-top:20px;
+    padding-left:50px;
+    padding-right:40px;
+    padding-bottom:40px;
+    width:45%;
+    float: right;
+}
+.recommend_travel_intro p{
+    width:97%;
+    box-sizing: border-box;
+    padding:10px;
+    border-top:2px solid #506EA5;
+    border-bottom:2px solid #506EA5;
+    margin-top:30px;
+    margin-right: 0;
+    overflow: scroll;
+    max-height:260px;
+}
+
+.stay_recommend_page{
+    display: block;
+    width:100%;
+    height:400px;
+    background-color: yellowgreen;
 }
 
 @media(min-width:2000px){
@@ -334,6 +456,50 @@ footer p {
     }
     .recommend_place:nth-child(3){
         display: none;
+    }
+    .recommend_page{
+        padding-left: 1%;
+        padding-right: 1%;
+        height: auto;
+    }
+    .second_page{
+        height:auto;
+    }
+    .second_page h1{
+        width:100%;
+        padding:0;
+    }
+    .topic_box{
+        width:98%;
+        height:800px;
+    }
+    .topic_name{
+        width:44%;
+        margin-bottom:40px
+    }
+    .recommend_travel_box{
+        width:100%;
+        height: auto;
+    }
+    .recommend_travel_box img{
+        float: none;
+        width: 100%;
+        height: 40vw;
+        min-height: 200px;
+    }
+    .recommend_travel_intro{
+        float: none;
+        width:100%;
+        height:37vw;
+    }
+    .recommend_travel_box h2{
+        font-size: 20px;
+    }
+    .recommend_travel_box h3{
+        font-size:17px;
+    }
+    .recommend_travel_intro p{
+        max-height: 17vw;
     }
 }
 
@@ -376,10 +542,36 @@ footer p {
         left: 50%;
         margin-left: -150px;
     }
+    .recommend_travel_intro p{
+        display: none;
+    }
+    .recommend_travel_intro{
+        width:60%;
+        float: none;
+        margin:0 auto;
+        margin-top: 20px;
+        padding:30px;
+        height:auto;
+        text-align: center;
+    }
+}
+@meDIa(max-width:650px){
+    .second_page{
+        height:1360px;
+    }
+    .topic_box{
+        margin:0;
+        width:100%;
+    }
+    .topic_name{
+        width:98%;
+        margin:1%;
+        margin-top:60px;
+        float: none;
+    }
 }
 
 @media(max-width:450px){
-
     .intro_img{
         width:100%;
         right:0;
@@ -404,9 +596,6 @@ footer p {
 
     .recommend_box{
         display: none;
-    }
-    .intro_img{
-        margin-top:70px;
     }
     .intro_ex{
         display:inline-block;
