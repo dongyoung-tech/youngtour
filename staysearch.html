@@ -6,18 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" a href="./stay.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&amp;family=Jua&amp;display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/travel_icon.png">
     <meta name="description" content="여행을 가고싶을때 여행지 를 검색할수 있는 사이트 입니다">
     <title>여행_어디로가지?</title>
 </head>
 <body>
     <div class="header">
-        <span class="name"><img src="./assets/travel_icon.png">여행_어디로가지?</span>
-        <ul class="main_header">
-            <li><b><a href ="./index.html">소개</a></b></li>
-            <li><b><a href="./toursearch.html">여행지검색</a></b></li>
-            <li><b><a href="./staysearch.html">숙박</a></b></li>
-        </ul>
+        <div class="header_inner">
+            <a href="./index.html"><span class="name"><img src="./assets/travel_icon.png">여행_어디로가지?</span></a>
+             <ul class="main_header">
+                <li><b><a href ="./index.html">소개</a></b></li>
+                 <li><b><a href="./toursearch.html">상세검색</a></b></li>
+                <li><b><a href="./staysearch.html">숙박</a></b></li>
+            </ul>
+         </div>
     </div>
 <article class="etc_page">
      <div class="stay_input_box">   
@@ -48,7 +51,6 @@
         <button class="stay_btn">검색</button>
      </div>    
      <div class="stay_result_page">
-         <h2>검색결과</h2>
          <span class="area_weather">
             <span class="area_name">
                 <img src="./assets/저작권표시사진.jpg">
@@ -57,15 +59,11 @@
             </span>
             <span class="kakao_ad">adfit 광고 화면</span>
         </span>
+        <h2>검색결과</h2>
          <section class="stay_result_box"></section>
     </div> 
 </article> 
-<span class="stay_detail_page">
-    <div class="stay_detail_topic"></div>
-    <div class="stay_detail_inner"></div>
-</span>
-<span class="stay_delete_btn">닫기</span>
-<span class="background_overlay"></span>
+
 
 <script src="./stay.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=780050e9e52fc245b199daa7973c8c9b&libraries=services"></script>

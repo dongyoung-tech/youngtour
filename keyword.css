@@ -1,0 +1,163 @@
+body{
+    font-family:'Noto Sans kR',sans-serif;
+    margin:0;
+    width:100vw;
+    overflow-x:hidden;
+}
+::-webkit-scrollbar {
+    width:5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background:#506EA5;
+    border-radius:5px;
+  }
+header{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100px;
+    border-bottom:1px solid #d2d2d2;
+    background: white;
+    z-index: 4;
+}
+.header_inner{
+    position: relative;
+    display: block;
+    width:1000px;
+    margin: 0 auto;
+    height: 100%;
+}
+.name{
+    display: inline-block;
+    width:250px;
+    font-size:20px;
+    height:100px;
+    margin-left:20px;
+    line-height:100px;
+    color:black;
+    font-weight: bold;
+    z-index:4;
+}
+.name img{
+    float: left;
+    margin-top: 20px;
+    margin-right:10px;
+    width:60px;
+    height:50%;
+}
+.input_box{
+    display: block;
+    float: right;
+    box-sizing: border-box;
+    margin:0;
+    margin-top:25px;
+    margin-right: 20px;
+    width:50%;
+    height:50px;
+}
+header button{
+    display: block;
+    width:30%;
+    height:100%;
+    background-color: #506EA5;
+    color: white;
+    float: right;
+    font-size: 15px;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+}
+.search_input{
+    display: block;
+    float:left;
+    box-sizing: border-box;
+    font-size: 17px;
+    margin:0;
+    padding:5px 5px 5px 15px;
+    width:70%;
+    height:100%;
+    border: 1px solid #d2d2d2;
+    border-radius: 10px 0px 0px 10px;
+}
+.main_page{
+    margin:0 auto;
+    margin-top: 150px;
+    width:1000px;
+    display: block;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.main_page h1{
+    font-size: 25px;
+    height: 50px;
+    width:75%;
+    float: left;
+    margin:0;
+}
+.main_topic{
+    display: inline-block;
+    width:100%;
+    border-bottom: 2px solid black;
+    margin-bottom: 20px;
+}
+.main_topic ul{
+    list-style: none;
+    display: block;
+    float: right;
+    width:25%;
+    height:100%;
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.main_topic ul li{
+    display: block;
+    float: left;
+    width: calc(100%/3);
+    height: 100%;
+    text-align: center;
+    color: gray;
+    font-weight: bold;
+}
+.main_topic ul li.after{
+    color: black;
+}
+.main_container{
+    display: inline-block;
+    width:100%;
+    box-sizing: border-box;
+    border-radius:5px;
+    border-bottom: 1px solid #d2d2d2;
+    margin-bottom: 50px;
+}
+.main_container div{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width:100%;
+    height:200px;
+    border: 1px solid #d2d2d2;
+    border-bottom: none;
+    padding:20px;
+}
+.main_container div:hover{
+   background-color: #f2f2f2;
+}
+.main_container div a{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+}
+.main_container img{
+    display: block;
+    float: left;
+    width:30%;
+    margin-right: 20px;
+    height: 100%;
+    border-radius:5px;
+}
+.main_container h4{
+    color: dodgerblue;
+}

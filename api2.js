@@ -1,4 +1,7 @@
 function areaApi() {
+    morenum = 1;
+   document.querySelector(".more_box").style.display ="inline-block";
+   resultpage.style.height="1550px"; 
    var xhr = new XMLHttpRequest();
    var areavalue = document.querySelector(".detail_input").value;
    var contentvalue = document.querySelector(".detail_input2").value;
@@ -6,7 +9,7 @@ function areaApi() {
     var url = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList'; /*URL*/
     var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'yX8wx5nzKb42wtBThegyX7gb6G3xUCPCMfbzNYF1Gf0p0nSUn9ZeynPzokq9GNLvrFLmqQVbU9%2FQz9LckJpQLw%3D%3D'; /*Service Key*/
     queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
-    queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('12'); /**/
+    queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('60'); /**/
     queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest'); /**/
     queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC'); /**/
     queryParams += '&' + encodeURIComponent('arrange') + '=' + encodeURIComponent('P'); /**/ /**/
@@ -35,9 +38,6 @@ function areaApi() {
             var min = Math.min(image.length,addr1.length,title.length);
             document.querySelector('.result_page h1').style.display="inline-block";
             document.querySelector('.area_weather').style.display="inline-block";
-            aldiv = document.createElement('h2');
-            resultpage.appendChild(aldiv);
-            aldiv.innerHTML ="찾은 여행지 수 : " + title.length;
             for(var i=0; i<min; i++){
                 img = document.createElement('img');
                 rh = document.createElement('h3');
@@ -45,6 +45,7 @@ function areaApi() {
                 rh3 = document.createElement('h5');
                 rh4 = document.createElement('h6');
                 rdiv = document.createElement('div');
+                rhref = document.createElement('a');
                 resultpage.appendChild(rdiv);
                 img.setAttribute('src',image[i].innerHTML);
                 rh.innerHTML = title[i].innerHTML;
@@ -52,11 +53,17 @@ function areaApi() {
                 rh3.innerHTML = contentId[i].innerHTML;
                 rh4.innerHTML = typeid[i].innerHTML;
                 rdiv.setAttribute('data-value',i);
+                rhref.setAttribute('href',"./result.html?" +rh3.innerHTML);
                 document.querySelectorAll('.result_box div')[i].appendChild(img);
                 document.querySelectorAll('.result_box div')[i].appendChild(rh);
                 document.querySelectorAll('.result_box div')[i].appendChild(rh2);
                 document.querySelectorAll('.result_box div')[i].appendChild(rh3);
                 document.querySelectorAll('.result_box div')[i].appendChild(rh4);
+                document.querySelectorAll('.result_box div')[i].appendChild(rhref);
+            }
+            if(document.querySelectorAll('.result_box div').length < 10){
+                resultpage.style.height='auto';
+                document.querySelector(".more_box").style.display ="none";
             }
         }
     };
@@ -112,7 +119,6 @@ function inputapi(v){
 document.querySelector(".search_btn2").addEventListener('click',function(){
     var resultpage = document.querySelector('.result_box'); 
     if(document.querySelector('.result_box').childElementCount > 0){
-        resultpage.removeChild(document.querySelector('.result_box h2')); 
         while(resultpage.childElementCount > 0){
                 resultpage.removeChild(document.querySelector('.result_box div')); 
             }
@@ -125,6 +131,8 @@ document.querySelector(".search_btn2").addEventListener('click',function(){
 });
 
 //-----------------숙박 검색하기--------------------//
+
+
 
 
 

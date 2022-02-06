@@ -1,5 +1,5 @@
 body{
-    font-family:'Jua',sans-serif;
+    font-family:'Noto Sans kR',sans-serif;
     margin:0;
     width:100vw;
     overflow-x:hidden;
@@ -8,38 +8,78 @@ body{
     width:5px;
   }
   ::-webkit-scrollbar-thumb {
-    background:#506EA5;;
+    background:#506EA5;
     border-radius:5px;
   }
 .main_page{
+    position: relative;
     display:block;
     width:100%;
-    height:100vh;
+    margin:0 auto;
+    height:650px;
     box-sizing: border-box;
     background-size:100% 100%;
     z-index:1;
 }
-
-.header{
-    position:fixed;
-    display: inline-block;
+.main_page h1{
+    position: absolute;
     color: white;
-    z-index: 4;
     width:100%;
+    top:50px;
+    font-size: 40px;
+    text-align: center;
+    z-index: 3;
+}
+.start_btn{
+    position:absolute;
+    top:250px;
+    color:#506EA5;
+    background-color: white;
+    text-align: center;
+    line-height: 100px;
+    border: 1px solid white;
+    left:50%;
+    margin-left:-150px;
+    width:300px;
     height:100px;
-    top:0;
-    left:0;
+    z-index: 3;
+}
+.header{
+    position: fixed;
+    display: inline-block;
+    color: black;
+    background-color: white;
+    z-index: 4;
+    height: 100px;
+    top:40px;
+    left: 0;
+    width: 1100px;
+    left: 50%;
+    margin-left: -550px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 .header.after{
-    background-color: white;
-    color:black;
+    top:0;
+    width:100%;
+    left:0;
+    margin-left:0;
     border-bottom: 1px solid #d2d2d2;
+    border-radius: 0px;
 }
+.header_inner{
+    position: relative;
+    width:1000px;
+    margin: 0 auto;
+    height:100%;
+    display: block;
+}
+
 
 .header.after .name{
     color: black;
 }
-.header.after  a{
+.header a{
     color: black;
 }
 
@@ -52,9 +92,9 @@ body{
     font-size:20px;
     height:100px;
     top:0;
-    left:5%;
+    left:0;
     line-height:100px;
-    color: white;
+    color:black;
     font-weight: bold;
     z-index:4;
 }
@@ -68,9 +108,9 @@ body{
 .main_header{
     position: absolute;
     display: inline-block;
-    top:0;
     list-style: none;
-    right:7%;
+    top:0;
+    right:-50px;
     margin:0;
     padding:0;
     width:450px;
@@ -81,85 +121,69 @@ body{
 .intro_img{
     position:absolute;
     display: inline-block;
-    top:0;
-    padding-top:100px;
     min-height:500px;
-    right:0;
+    left:0;
     width:100%;
-    height:100vh;
+    height:650px;
     box-sizing: border-box;
-    background-image: url("./assets/sky2.jpg");
-    filter: brightness(85%);
-    background-size:cover;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("./assets/바다.jpg");
+    filter: brightness(90%);
+    background-size:100% 120%;
     transition:1s opacity ease-in-out;
+    z-index: 2;
 }
 
 .intro_img:nth-child(2){
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("./assets/seoulcity.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),url("./assets/배경.jpg");
 }
 .intro_img:nth-child(3){
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("./assets/city.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),url("./assets/seoulcity.jpg");
 }
-.recommend_box{
+.main_recommend_con{
     position: absolute;
     display: inline-block;
-    top:50%;
-    margin-top:-240px;
-    right:50%;
-    margin-right:-500px;
-    width:1000px;
-}
-.recommend_box h2{
-    padding-left:30px;
-    color:white;
-    font-size: 35px;
-    font-weight: 100;
-}
-.recommend_place{
-    position:relative;
     box-sizing: border-box;
-    width:calc(820px/3);
-    margin:30px;
-    height:330px;
+    top:30%;
+    width:60%;
+    right:20%;
+    height:300px;
+    text-align: center;
+    z-index: 3;
+}
+.main_recommend_con h2{
+    font-size: 40px;
+    margin-bottom:30px;
+}
+.main_recommend_con h3{
+    margin-top:0;
+    height:30px;
+    margin-bottom:30px;
+    color: white;
+}
+.main_input{
+    width:80%;
+    height:60px;
     float: left;
-    overflow: hidden;
-    border-radius:10px;
-}
-.recommend_place img{
-    display: inline-block;
-    filter: brightness(60%);
-    width:100%;
-    height:65%;
-}
-.recommend_place img:hover{
-    transition: 1.5s;
-    transform: scale(1.3);
-}
-.recommend_topic{
-    position:absolute;
-    bottom:0;
-    display:inline-block;
-    width:100%;
-    height:35%;
-    padding:10px;
+    font-size:25px;
     box-sizing: border-box;
-    color:black;
-    background-color: white;
-    left:0;
-    pointer-events: none;
+    padding-left:20px;
+    border-radius: 20px 0px 0px 20px;;
 }
-.recommend_topic h4{
-    font-weight: 100;
-    font-size:13px;
-    color:#506EA5;
-    margin:0;
-    margin-bottom:5px;
+.main_btn{
+    float:right;
+    width:20%;
+    height:60px;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #506EA5;
+    border: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0px 20px 20px 0px;
 }
-.recommend_topic h3{
-    font-weight: 100;
-    font-size:17px;
-    margin:0;
-}
+
+
+
 .intro_ex{
     position:absolute;
     display:none;
@@ -201,13 +225,10 @@ body{
     box-sizing: border-box;
     z-index: 2;
 }
-.header.after li a:hover{
+.header li a:hover{
     background-color : #506EA5;
     color: white;
     border-bottom: none;
-}
-.header li a:hover{
-    border-bottom: 3px solid  white;
 }
 
 
@@ -231,37 +252,36 @@ a{
 .second_page{
     position: relative;
     display:block;
-    margin: 0;
-    width:100%;
-    height:500px;
-    padding-top:150px;
-    padding-bottom: 100px;
+    margin: 0 auto;
+    background: white;
+    padding:50px;
+    box-sizing: border-box;
+    width:1000px;
+    height:550px;
     z-index:1;
 }
 .second_page h1{
-    font-size:30px;
+    font-size:25px;
     font-weight: 100;
-    width:1000px;
-    margin: 0 auto;
-    text-align:left;
-    padding-left: 4%;
+    width:100%;
+    text-align:center;
 }
 
 .topic_box{
     display:block;
     margin: 0 auto;
     margin-top:50px;
-    width:1000px;
-    height:400px;
+    width:900px;
+    height:300px;
     box-sizing: border-box;
 }
 
 .topic_name{
     position:relative;
     float: left;
-    height:300px;
-    margin:3%;
-    width:calc(82%/3);
+    height:280px;
+    margin:1%;
+    width:calc(94%/3);
     box-sizing: border-box;
     margin-bottom: 0;
     overflow: hidden;
@@ -281,45 +301,37 @@ a{
     position: relative;
     width:100%;
     position:absolute;
+    top:50%;
+    margin-top:-50px;
     bottom:0;
     left:0;
-    height:50%;
+    height:40%;
     color: white;
     box-sizing: border-box;
     padding: 15px;
     z-index:4;
-    pointer-events: none;
-}
-.topic_name div b{
-    position:absolute;
-    bottom:15px;
-    right:15px;
-    color:white;
 }
 
 .topic_name div h2{
     width:100%;
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 0;
-}
-.topic_name div h3{
-    width:100%;
-    font-size:15px;
-    margin-top: 10px;
-    text-align: center;
-    color: white;
+    font-size:20px;
+    text-align:center;
+    margin:0;
+    margin-top:10px;
+    color:white;
 }
 .topic_name span{
     position:absolute;
     top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    left:50%;
+    margin-left:-45%;
+    width:90%;
+    height:90%;
+    border-radius: 130px;
     z-index: 3;
 }
 .topic_name:nth-child(1) span {
-    background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("./assets/topic1.jpg");
+    background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("./assets/한옥.jpg");
     background-size:100% 100%;
 }
 .topic_name:nth-child(2) span {
@@ -330,31 +342,7 @@ a{
     background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("./assets/house.jpg");
     background-size:100% 100%;
 }
-.topic_name span:hover{
-    transition: 1.5s;
-    transform: scale(1.5);
-}
 
-.third_page{
-    display: block;
-    width:100%;
-    height:700px;
-    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("./assets/beach2.jpg");
-    background-size:cover;
-    color: white;
-    box-sizing: border-box;
-    padding: 5%;
-    padding-left:10%;
-    z-index:1;
-}
-.third_page h1{
-    margin-top:100px;
-    font-size: 40px;
-}
-.third_page h2{
- color: white;
- margin-top:50px;
-}
 
 footer{
     display: block;
@@ -372,64 +360,236 @@ footer p {
     font-size: 13px;
     margin:0;
 }
+.stay_recommend_page h2{
+    text-align: center;
+    color:black;
+    margin-top:0;
+    font-size:25px;
+    font-weight: 100;
+}
+.kakao_main_ad{
+    display:none;
+    width:320px;
+    margin: 0 auto;
+    margin-bottom:30px;
+    height: 100px;
+    background-image: url("./assets/광고.JPG");
+    background-size: cover;
+}
+.stay_recommend_page{
+    display: block;
+    padding-top:50px;
+    position: relative;
+    width:1000px;
+    margin:0 auto;
+    height:530px;
+    background: white;
+    overflow: hidden;
+}
+.recommend_box{
+    position: absolute;
+    bottom:0;
+    display:block;
+    margin: 0 auto;
+    width:400%;
+    height:400px;
+    transition: 0.6s;
+}
 
+.recommend_place{
+    position:relative;
+    box-sizing: border-box;
+    width:calc(940px/3);
+    margin:10px;
+    height:330px;
+    float: left;
+    overflow: hidden;
+    border: 1px solid #d2d2d2;
+
+}
+.recommend_place a{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;;
+}
+.recommend_place img{
+    display: inline-block;
+    width:100%;
+    height:72%;
+}
+.recommend_place img:hover{
+    transition: 0.5s;
+    transform: scale(1.3);
+}
+
+.recommend_topic{
+    position:absolute;
+    bottom:0;
+    display:inline-block;
+    width:100%;
+    height:28%;
+    padding:10px;
+    padding-top:15px;
+    box-sizing: border-box;
+    z-index: 2;
+    left:0;
+    background-color: white;
+}
+.recommend_topic h4{
+    font-weight: 100;
+    font-size:13px; 
+    margin:0;
+    color: #506EA5;
+    margin-bottom:5px;
+}
+.recommend_topic h3{
+    font-weight: 100;
+    font-size:15px;
+    margin:0;
+}
+.navi_btn{
+    position: absolute;
+    display: inline-block;
+    width:80px;
+    height:80px;
+    color:black;
+    bottom:200px;
+    z-index:3;
+    text-align: center;
+    line-height:70px;
+    border-radius: 40px;
+    background:white;
+    font-size: 40px;
+    border:2px solid black;
+}
+.navi_btn:nth-child(4){
+    left:0;
+}
+.navi_btn:nth-child(5){
+    right:0;
+    display: none;
+}
 .recommend_page{
     display: block;
     box-sizing: border-box;
-    padding:50px;
-    padding-bottom: 100px;
+    margin-top:100px;
+    padding:0;
     width:100%;
-    height:830px;
     background-size: cover;
+    margin-bottom: 100px;
 }
 
 .recommend_page h1{
     text-align:center;
     font-weight: 100;
-    font-size:40px;
+    font-size:30px;
     margin-top:50px;
-    margin-bottom:100px;
+    margin-bottom:50px;
 }
 .recommend_travel_box{
     display: block;
     margin: 0 auto;
     box-sizing: border-box;
     width:100%;
-    height:500px;
+    height:600px;
+    position: relative;
 }
 .recommend_travel_box img{
     display: block;
-    width:55%;
-    height: 100%;
+    width:100%;
+    filter: brightness(60%);
+    height:90%;
     float: left;
 }
 .recommend_travel_intro{
     display: block;
     box-sizing: border-box;
-    padding-top:20px;
-    padding-left:50px;
-    padding-right:40px;
-    padding-bottom:40px;
-    width:45%;
-    float: right;
+    width:1000px;
+    height:300px;
+    position: absolute;
+    top:50%;
+    margin-top:-120px;
+    left:50%;
+    margin-left: -500px;
+    text-align: center;
+    border-radius: 10px;
 }
-.recommend_travel_intro p{
-    width:97%;
+.recommend_travel_box h1{
+    position: absolute;
+    top:15px;
+    left:50%;
+    margin-left:-500px;
+    color: white;
+    text-align: left;
+    padding-left:1%;
+    z-index: 3;
+    font-weight: bold;
+    width:1000px;
+}
+.recommend_travel_intro h2{
+    font-size: 20px;
+    color: white;
+    margin:0;
+}
+.recommend_travel_intro h3{
+    font-size:15px;
+    color: white;
+}
+.recommend_travel_intro div{
+    background: white;
+    display: block;
+    height:94%;
+    float: left;
+    width:calc(92%/4);
+    margin:1%;
+    background-size: cover;
+    position:relative;
+}
+.recommend_travel_intro div a{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+}
+.recommend_travel_intro span{
+    position: absolute;
+    bottom: 0;
+    height:50%;
+    left:0;
+    display: block;
+    width: 100%;
+    background : linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
     box-sizing: border-box;
-    padding:10px;
-    border-top:2px solid #506EA5;
-    border-bottom:2px solid #506EA5;
-    margin-top:30px;
-    margin-right: 0;
-    overflow: scroll;
-    max-height:260px;
+    padding: 10px;
 }
 
-.stay_recommend_page{
+.recommend_menu{
+    position: absolute;
+    list-style: none;
+    top:60px;
+    right: 50%;
+    margin-right: -490px;
+    height:70px;
+    width:500px;
+    z-index: 3;
+    padding:0;
+}
+.recommend_menu li{
     display: block;
-    width:100%;
-    height:400px;
-    background-color: yellowgreen;
+    float: left;
+    width: calc(500px/3);
+    color: white;
+    line-height: 70px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    text-align: center;
+}
+
+.recommend_menu li.active{
+    background: #506EA5;
+    color: white;
 }
 
 @media(min-width:2000px){

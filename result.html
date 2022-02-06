@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" a href="./result.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&amp;family=Jua&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/travel_icon.png">
+    <meta name="description" content="여행을 가고싶을때 여행지 를 검색할수 있는 사이트 입니다">
+    <title>여행_어디로가지?</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header_inner">
+            <a href="./index.html"><span class="name"><img src="./assets/travel_icon.png">여행_어디로가지?</span></a>
+             <ul class="main_header">
+                <li><b><a href ="./index.html">소개</a></b></li>
+                 <li><b><a href="./toursearch.html">상세검색</a></b></li>
+                <li><b><a href="./staysearch.html">숙박</a></b></li>
+            </ul>
+         </div>
+    </div>
+    <section class="main_page">
+        <h1 class="main_name"></h1>
+        <h3 class="main_addr"></h3>
+        <div class="intro_img">
+            <div class="photo_btn">사진보기</div>
+        </div>
+        <article class="main_intro">
+            <div class="main_topic">
+                <h3>상세소개</h3>
+                <p></p>
+                <div class="photo_box"></div>
+            </div>
+            <div class="main_inner"></div>
+            <div class="recommend_box">
+                <h3>🚞 주변 관광지(거리순)</h3>
+            </div>
+        </article>
+    </section>
+    <div class="background_overlay"></div>
+    <div class="photo_detail">
+        <div class="photo_container"></div>
+        <button class="navi_btn">&#60;</button>
+        <button class="navi_btn">&#62;</button>
+    </div>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=780050e9e52fc245b199daa7973c8c9b&libraries=services"></script>    
+<script src="./result.js"></script>        
+</body>
+</html>

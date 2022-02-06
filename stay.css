@@ -15,13 +15,30 @@ body{
 .header{
     position:fixed;
     display: inline-block;
-    background-color: white;
     z-index: 4;
     width:100%;
     height:100px;
     top:0;
     left:0;
-    border-bottom: 1px solid #d2d2d2;
+    color: white;
+}
+.main_header{
+    position: absolute;
+    display: inline-block;
+    list-style: none;
+    right:-50px;
+    margin:0;
+    padding:0;
+    width:450px;
+    height:100px;
+    z-index: 4;
+}
+.header_inner{
+    position: relative;
+    width:1000px;
+    height:100%;
+    display: block;
+    margin:0 auto;
 }
 .main_header li{
     width:150px;
@@ -31,8 +48,21 @@ body{
     text-align:center;
     line-height:100px;
 }
-.main_header li b:hover{
-    border-bottom:2px solid black;
+.main_header li a{
+    width:100%;
+    height:100%;
+    box-sizing: border-box;
+    color: white;
+    z-index: 2;
+}
+
+.header.after li a:hover{
+    background-color: #506EA5;
+    color : white;
+    border: none;
+}
+.header li a:hover{
+    border-bottom: 3px solid  white;
 }
 
 .name{
@@ -43,10 +73,11 @@ body{
     font-size:20px;
     height:100px;
     top:0;
-    left:5%;
+    left:0;
     line-height:100px;
     font-weight: bold;
     z-index:4;
+    color: white;
 }
 .name img{
     float: left;
@@ -55,18 +86,21 @@ body{
     width:60px;
     height:50%;
 }
-.main_header{
-    position: absolute;
-    display: inline-block;
-    top:0;
-    list-style: none;
-    right:7%;
-    margin:0;
-    padding:0;
-    width:450px;
-    height:100px;
-    z-index: 4;
+
+.header.after{
+    background-color: white;
+    color:black;
+    border-bottom: 1px solid #d2d2d2;
 }
+
+.header.after .name{
+    color: black;
+}
+.header.after a{
+    color: black;
+}
+
+
 
 .etc_page{
     display:inline-block;
@@ -137,9 +171,9 @@ a{
 
 .stay_input_box{
     display: inline-block;
-    padding-top:170px;
+    padding-top:100px;
     height: 400px;
-    background-image:linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("./assets/house.jpg");
+    background-image:linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url("./assets/sky2.jpg");
     background-size:cover;
     width:100%;
 }
@@ -167,15 +201,17 @@ a{
     border: none;
 }
 .stay_result_page{
+    display:inline-block;
     width:100%;
     padding-top: 50px;
     box-sizing: border-box;
+    padding-bottom: 50px;
 }
 .stay_result_box{
-    display: inline-block;
-    width: 100%;
+    display:block;
+    width:1000px;
     box-sizing: border-box;
-    padding:15%;
+    margin: 0 auto;
     padding-top:30px;
     max-width: 1600px;
     padding-bottom:100px;
@@ -196,33 +232,31 @@ a{
 .stay_result_box div{
     float:left;
     overflow: hidden;
+    position: relative;
     width:calc(94%/3);
     height:330px;
     box-sizing: border-box;
     margin:1%;
-    border: 1px solid #d2d2d2;
-    border-bottom:3px solid #506EA5;
     margin-bottom:50px;
     box-sizing: border-box;
+    border: 1px solid #d2d2d2;
 }
 .stay_result_box div:hover{
-    border: 1px solid dodgerblue;
-    transform: translateY(-5px);
-    transition:0.3s;
-    box-shadow: rgb(210 210 210) 0px 5px 10px 0px;
+    transition: 0.3s;
+    transform: translateY(-3px);
+    box-shadow: #d2d2d2 1.5px 1.5px 10px 1.5px;
 }
 .stay_result_box  div img{
     display: inline-block;
     width:100%;
-    height:180px;
+    height:190px;
     pointer-events: none;
     box-sizing: border-box;
-    border-bottom: 1px solid black;
 }
 .stay_result_box div h3{
     padding-left:10px;
     padding-right:10px;
-    margin-top:10px;
+    margin-top:15px;
     font-size:17px;
     text-align: left;
     margin-bottom:10px;
@@ -231,6 +265,7 @@ a{
 }
 .stay_result_box div h4{
     pointer-events: none;
+    font-size: 13px;
     margin-top:5px;
     margin-left:10px;
     color:#506EA5;
@@ -240,113 +275,23 @@ a{
 
 .stay_result_box div h5{
     pointer-events: none;
-    color: white;
+    color:white;
     margin:0
 }
 
 .stay_result_box div h6{
     margin:0;
     pointer-events: none;
-    color: white;
+    color:white;
 }
 
-.stay_detail_page{
-    position:fixed;
-    display:none;
-    width:95%;
-    max-width:1600px;
-    height:100vh;
+.stay_result_box div a{
+    position: absolute;
+    display: inline-block;
     top:0;
-    z-index:6;
-    left:2.5%;
-    border: 1px solid #d2d2d2;
-    background-color: white;
-    overflow: scroll;
-    overflow-x: hidden;
-    padding:5%;
-    padding-top:0;
-    box-sizing: border-box;
-}
-.stay_delete_btn{
-    position:fixed;
-    top:20px;
-    right:4%;
-    text-align: center;
-    line-height: 50px;
-    width:50px;
-    height:50px;
-    font-size: 20px;
-    display:none;
-    z-index:7;
-    background-color: white;
-    border: 1px solid #d2d2d2;
-}
-.stay_detail_topic{
-    display:inline-block;
-    padding-top:50px;
+    left:0;
     width:100%;
-    margin-bottom: 100px;
-}
-.stay_detail_topic h3{
-    display: block;
-    font-size:30px;
-    height:160px;
-    box-sizing: border-box;
-    margin:0;
-    padding-top:70px;
-    width:47%;
-    text-align:left;
-    font-weight: 100;
-    float: right;
-}
-.stay_detail_topic img{
-    display:block;
-    width:50%;
-    height:400px;
-    float:left;
-    padding-top:70px;
-}
-.stay_detail_topic p{
-    width:47%;
-    height:250px;
-    margin-top:50px;
-    border-top:2px solid #506EA5;
-    border-bottom:2px solid #506EA5;
-    box-sizing: border-box;
-    padding:15px;
-    padding-bottom: 0;
-    overflow: scroll;
-    float: right;
-}
-
-.stay_detail_inner{
-    display: block;
-    width:100%;
-}
-.stay_detail_inner span{
-    display: inline-block;
-    width:10%;
-    text-align: center;
-    line-height: 70px;
-    height: 70px;
-    background-color: #506EA5;
-    color: white;
-    margin-left:5%;
-    margin-bottom: 30px;
-    vertical-align: top;
-}
-.stay_detail_inner dl{
-    display: inline-block;
-    width:77%;
-    color:black;
-    margin:0;
-    margin-left:3%;
-    padding-left:10px;
-    border:1px solid black;
-    box-sizing: border-box;
-    padding: 15px;
-    margin-bottom:30px;
-    min-height: 55px;
+    height: 100%;
 }
 
 .area_weather{
@@ -359,7 +304,7 @@ a{
     padding:20px;
     height:300px;
     box-sizing: border-box;
-    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("./assets/seoulcity.jpg");
+    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("./assets/sky2.jpg");
     background-size:100% 150%;
     box-sizing: border-box;
     padding-left:5%;
@@ -466,8 +411,6 @@ a{
 
 @media(max-width:700px){
 
-
-
     #map{
         width:100%;
         margin-left:0;
@@ -529,6 +472,7 @@ a{
         height:210px;
         margin-left:2%;
         padding:10px;
+        border: 1px solid #d2d2d2;
     } 
     .result_page div img{
         display: inherit;
@@ -610,7 +554,6 @@ a{
         margin-left:5%;
     }
     .stay_input_box{
-        padding-top: 100px;
         height: 290px;
     }
     .stay_input2{
